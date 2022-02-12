@@ -5,24 +5,21 @@
 # 첫째 줄에 N이 주어진다. N은 0보다 크거나 같고, 99보다 작거나 같은 정수이다.
 # 첫째 줄에 N의 사이클 길이를 출력한다.
 
-start = input()
+start = int(input())
+new_num = start
+count = 0
 
-
-if int(start) < 10:
-    start = start+'0'
-else:
-    start = start
-
-n = 0
 while True:
-    list1 = list(start)
-    ans1 = int(list1[0]) + int(list1[1])
-    list1.append(ans1)
-    new_num = list1[1] + str(list1[-1])
-    new_num = start
-    n += 1
-    if start == new_num:
+    n1 = new_num // 10
+    n2 = new_num % 10
+    n3 = (n1+n2) % 10
+    new_num = (n2*10)+n3
+    count += 1
+
+    if new_num == start:
         break
-    print(n)
+    else:
+        continue
+print(count)
 
 
